@@ -11,6 +11,10 @@ const Schema = mongoose.Schema;
 
 // Create Schema Instance and add schema propertise
 const resultadoSchema = new Schema({
+    dia: {
+        type: String,
+        required: true
+    },
     sinais: {
         type: Array,
         required: true
@@ -18,4 +22,4 @@ const resultadoSchema = new Schema({
 });
 
 // create and export model
-module.exports = mongoose.model(`${now.toLocaleDateString('pt-br').replace(/\//g, '_')}`, resultadoSchema);
+module.exports = mongoose.model(`${now.toLocaleDateString("pt-BR", { month: 'long' })}`, resultadoSchema);
